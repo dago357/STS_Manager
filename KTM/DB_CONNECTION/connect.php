@@ -1,13 +1,13 @@
 <?php 
 
+$dsn = 'mysql:host=localhost;dbname=sts_db';
+$user = 'jack';
+$password = 'fQU8us9Mn5k2OLGx';
 
-try{
-    $db = new PDO("mysql:host=127.0.0.1;dbname=sts_db;", "root","");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}catch (PDOEXCEPTION $ex){
-     echo 'errore';
+try {
+    $db = new PDO($dsn, $user, $password);
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
 }
-    
-
     
 ?>
