@@ -1,9 +1,19 @@
 <?php
-include("DB_CONNECTION/connect.php");
+//include("DB_CONNECTION/connect.php");
+
+$con=mysqli_connect("127.0.0.1	","root","","sts_db");
+
+// Check connection
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+// escape variables for security
+//$user = mysqli_real_escape_string($con, $_POST['user']);
   $errori = array();
-  $user     = mysql_real_escape_string($_POST['user']);
-  $password = mysql_real_escape_string($_POST['password']);
-  
+  $user     = mysqli_real_escape_string($con, $_POST['user']);
+  $password = mysqli_real_escape_string($con, $_POST['password']);
+
   if ((preg_match("/^[a-z0-9]{4,12}$/", $user)) &&
       (preg_match("/^[a-z0-9]{4,12}$/", $password))){
       // $user rispetta il parametro, per cui posso effettuare la query
@@ -27,7 +37,7 @@ include("DB_CONNECTION/connect.php");
       
       
   }
- 
+/*/ 
   if ( (count($errori) == 0)){
 
         $user = $db->quote($user);
@@ -62,5 +72,5 @@ include("DB_CONNECTION/connect.php");
 }
         
 
-
+*/
 ?>
