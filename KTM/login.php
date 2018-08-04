@@ -1,25 +1,23 @@
 <?php
-//include("DB_CONNECTION/connect.php");
+   include("DB_CONNECTION/connect.php");
 
-$con=mysqli_connect("127.0.0.1	","root","","sts_db");
-
-// Check connection
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-
-// escape variables for security
-//$user = mysqli_real_escape_string($con, $_POST['user']);
   $errori = array();
-  $user     = mysqli_real_escape_string($con, $_POST['user']);
-  $password = mysqli_real_escape_string($con, $_POST['password']);
-
-  if ((preg_match("/^[a-z0-9]{4,12}$/", $user)) &&
-      (preg_match("/^[a-z0-9]{4,12}$/", $password))){
-      // $user rispetta il parametro, per cui posso effettuare la query
+  if (isset($_POST['user'])) {
+      $user = $_POST['user'];
+      
+      
   }
-  else {
-      // errore
+
+  if (isset($_POST['password'])) {
+      $password = $_POST['password'];
+      
+  }
+  if (!((preg_match("/^[a-z0-9]{4,12}$/", $user)) &&
+      (preg_match("/^[a-z0-9]{4,12}$/", $password)))){
+   
+      $errori[] = 'usati caratteri non validi';
+      include 'index.php';
+          
   }
 
   if (strlen($user) == 0){
@@ -37,15 +35,17 @@ if (mysqli_connect_errno()) {
       
       
   }
-/*/ 
+
   if ( (count($errori) == 0)){
 
         $user = $db->quote($user);
-  
-        $rows = $db->prepare("SELECT * 
+    
+         $rows = $db->prepare("SELECT * 
                                 FROM user 
                                 WHERE user=$user");
+       
         $rows->execute();
+
         if($rows->rowCount() == 1){
                      
           	  $arr = $rows->fetch();
@@ -72,5 +72,5 @@ if (mysqli_connect_errno()) {
 }
         
 
-*/
+
 ?>
