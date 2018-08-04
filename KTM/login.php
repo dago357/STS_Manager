@@ -43,7 +43,7 @@ include("DB_CONNECTION/connect.php");
           		  	    
                    session_start();
                    $_SESSION['user'] = $user;
-                   $_SESSION['tp_user'] = $arr['email'];
+                   $_SESSION['tp_user'] = $arr['tipo_user'];
                    
                    header("Location: page/home.php");
               }else{
