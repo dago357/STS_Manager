@@ -38,8 +38,7 @@ if (!isset($_SESSION["user"])) {
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-		<?php 
-		if ( $tipouser == 'A' ) {?>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorie</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -61,34 +60,11 @@ if (!isset($_SESSION["user"])) {
             <a class="nav-link" href="#">Dirigenti-Staff</a> <!-mostra i dirigenti e lo staff ->
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Mister</a> <!- visualizza i mister ->
+            <a class="nav-link" href="mister.php">Mister</a> <!- visualizza i mister/ aggiunto link per mister.php 13.08.2018 -> 
           </li>
            <li class="nav-item">
             <a class="nav-link disabled" href="#">Provino</a> <!- add provino, storico->
           </li>
-        <?php }
-            ELSEif ($tipouser == 'M') {?>
-             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorie</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Primi Calci Primo anno</a>
-              <a class="dropdown-item" href="#">Primi Calci Secondo anno</a>
-              <a class="dropdown-item" href="#">Pulcini Calci Primo anno</a>
-              <a class="dropdown-item" href="#">Pulcini Calci Secondo anno</a>
-              <a class="dropdown-item" href="#">Esordienti Calci Primo anno</a>
-              <a class="dropdown-item" href="#">Esordienti Calci Secondo anno</a>
-              <a class="dropdown-item" href="#">Giovanissimi Fascia B</a>
-              <a class="dropdown-item" href="#">Giovanissimi Fascia A</a>
-              <a class="dropdown-item" href="#">Allievi Fascia B</a>
-              <a class="dropdown-item" href="#">Allievi Fascia A</a>
-              <a class="dropdown-item" href="#">Juniores </a>
-              <a class="dropdown-item" href="#">Prima Squadra</a>
-            </div>
-          </li>     
-        
-        
-        
-        <?php  }?>
           <li class="nav-item">
             <a class="nav-link disabled" href="logout.php">Logout</a>
           </li>
