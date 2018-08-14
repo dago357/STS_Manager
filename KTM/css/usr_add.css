@@ -1,0 +1,32 @@
+body {
+  padding-top: 5rem;
+  
+}
+.btn1{	
+	background-color: #0000FF;/* #4CAF50; */ /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    width: 20%;
+	margin-left: 40%;
+	margin-right: 40%
+   }
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.form-usr_add {
+  width: 100%;
+  max-width: 1200px;
+  padding: 25px;
+  margin: auto;
+  align-items: left;
+ border: 5px solid black;
+border-radius: 25px;
+ }
