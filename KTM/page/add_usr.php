@@ -78,28 +78,30 @@ if (!isset($_SESSION["user"])) {
     </nav>
 </body>
 
- <main role="main" class="container">    
+ <main role="main" class="container">   
  <br><br><br> 
- <div class="form-usr_add">   
+ <h1 align="center">Aggiungi frocio</h1>
+<form class="form-usr_add" action="insert.php" method="POST">   
+<div class="form-usr_add">
 N. Tesseramento:
-<input type="text" name="n_tessera" placeholder ="DIOKANE">
+<input type="text" name="n_tessera" required>
 Categoria:
-<input type="text" name="categoria">
+<input type="text" name="categoria" required>
 <br><br>
   Nome:
-  <input type="text" name="nome">
+  <input type="text" id="nome" name="nome" required>
   Cognome:
-  <input type="text" name="cognome">
+  <input type="text" id="cognome" name="cognome" required>
   <br><br> 
   Data di nascita:
-  <input type="date" name="data_n">
+  <input type="date" name="data_n" required>
   Luogo di nascita:
-  <input type="text" name="luogo_n"> 
+  <input type="text" name="luogo_n" required> 
   Residenza:
-  <input type="text" name="residenza">
-      </div>
+  <input type="text" name="residenza" required>
+  </div>
       <br>      
-  <div class="form-usr_add">  
+<div class="form-usr_add">
   Data visita medica:
   <input type="date" name="begda_visita">
   Scadenza visita:
@@ -108,19 +110,22 @@ Categoria:
   <input type="number" name="altezza">
   Peso:
   <input type="number" name="peso">
+</div>
+  <br>
+<div class="form-usr_add">
+  Mail:
+  <input type="email" name="mail" required>
+  Tel:
+  <input type="number" name="tel" required>
   </div>
   <br>
-   <div class="form-usr_add">  
-  Mail:
-  <input type="email" name="cognome">
-  Tel:
-  <input type="number" name="cognome">
- </div>
- <br>
- <button class="btn1" type="submit" >Aggiungi trm</button>
-<br> 
+   <button class="btn1" type="submit" name="save" >Aggiungi trm</button>   
+ </form>
+ <br> 
 <br>
 </main>
+
+ 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
