@@ -1,15 +1,3 @@
-<?php 
-session_start();
-
-if (!isset($_SESSION["user"])) {
-    header("Location: ../index.php");
-    
-}else{
-    $username = $_SESSION["user"];
-    $tipouser = $_SESSION["tp_user"];
-}
-
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,6 +14,9 @@ if (!isset($_SESSION["user"])) {
 
     <!-- Custom styles for this template -->
     <link href="../css/starter-template.css" rel="stylesheet">
+	
+	    <!-- Custom styles for this template -->
+    <link href="../css/usr_add.css" rel="stylesheet">
   </head>
 
   <body>
@@ -40,9 +31,13 @@ if (!isset($_SESSION["user"])) {
         <ul class="navbar-nav mr-auto">
 
 <!-navigaione pagina mister->
-		  <li class="nav-item">
-            <a class="nav-link" href="anag.php">Anagrafica Atleta</a> <!-mostra i dirigenti e lo staff ->
-          </li> 
+		          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Anagrafica Atleta</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="add_usr.php">Aggiungi Atleta</a>
+              <a class="dropdown-item" href="anag.php">Visualizza Anagrafiche</a>
+             </div>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="crea_tor.php">Crea Torneo</a> <!-mostra i dirigenti e lo staff ->
           </li>
@@ -65,18 +60,60 @@ if (!isset($_SESSION["user"])) {
         </form>
       </div>
     </nav>
-
+	
     <main role="main" class="container">
 
       <div class="starter-template">
-        <h1>Anagrafica Atleta<?php echo $username;
-        
-        ?></h1>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/qYRGCjWkpLs?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1&amp" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-			
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
+        <h1>Anagrafica Atleta</h1>
 
+<?php
+include('../DB_CONNECTION/connect.php');
+
+$query = $db->query('SELECT * FROM atleta');
+
+?>
+<style type="text/css">
+.tg  {border-radius: 25px;border:3px solid black;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:2px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid; border-radius: 25px;border-width:2px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-yw4l{vertical-align:top}
+</style>
+<table class="tg" align="center">
+  <tr>
+  	  <th class="tg-yw4l">N° Tesseramento</th>
+    <th class="tg-yw4l">Nome</th>
+    <th class="tg-yw4l">Cognome</th>
+    <th class="tg-yw4l">Data di nascita</th>
+    <th class="tg-yw4l">Luogo di nascita</th>
+    <th class="tg-yw4l">Residenza</th>
+    <th class="tg-yw4l">Codice fiscale</th>
+    <th class="tg-yw4l">Categoria</th>
+    <th class="tg-yw4l">Anno</th>
+    <th class="tg-yw4l">E-mail</th>
+    <th class="tg-yw4l">N° tel</th>    
+  </tr>
+  <?php
+while ($row = $query->fetch()) 
+{
+    echo "<tr>";
+	echo "<td>" . $row['N_Tessera'] ."</td>";
+    echo "<td>" . $row['Nome'] ."</td>";
+    echo "<td>" . $row['Cognome'] . "</td>";
+    echo "<td>" . $row['Data_Nascita'] . "</td>";
+    echo "<td>" . $row['Luogo_n'] . "</td>";
+    echo "<td>" . $row['Residenza'] . "</td>";
+    echo "<td>" . $row['C_F'] . "</td>";
+    echo "<td>" . $row['Categoria'] . "</td>";
+    echo "<td>" . $row['Anno'] . "</td>";
+    echo "<td>" . $row['email'] . "</td>";
+    echo "<td>" . $row['n_tel'] . "</td>";
+    echo "</tr>";
+}
+?>
+
+</table>
+      </div>
+	  
     </main><!-- /.container -->
 
     <!-- Bootstrap core JavaScript
